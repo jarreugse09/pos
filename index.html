@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Stock</title>
+    <style>
+        :root {
+            --text: #050506;
+            --background: #ffffff;
+            --primary: #ff93ac;
+            --secondary: #f9d4d4;
+            --accent: #6262d1;
+            --button: #ff5f5f;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--secondary);
+        }
+        .form-container {
+            background: var(--background);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            color: var(--text);
+            text-align: center;
+        }
+        .form-container input, .form-container button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 0.9em;
+            box-sizing: border-box;
+        }
+        .form-container input:focus, .form-container button:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .form-container input {
+            background-color: var(--primary);
+            color: var(--text);
+        }
+        .form-container button {
+            background: var(--button);
+            color: var(--background);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .form-container button:hover {
+            background: darken(var(--button), 10%);
+        }
+        .form-container .back-button {
+            background: #ddd;
+            color: var(--text);
+            border: 1px solid #ccc;
+            font-weight: normal;
+            transition: background-color 0.3s;
+        }
+        .form-container .back-button:hover {
+            background: var(--accent);
+            color: var(--background);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Insert Stock</h2>
+        <form id="stockForm" enctype="multipart/form-data">
+            <input type="text" name="category" id="category" placeholder="Category" required>
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <input type="number" step="0.01" name="price" id="price" placeholder="Price" required>
+            <input type="number" name="quantity" id="quantity" placeholder="Quantity" required> 
+            <input type="file" name="image" id="image" accept="image/*" required>
+            <button type="button" onclick="submitForm()">Submit</button>
+            <button type="button" class="back-button" onclick="window.location.href='billing.html'">Go Back</button>
+        </form>        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function submitForm() {
+            const formData = new FormData(document.getElementById('stockForm'));
+
+            $.ajax({
+                url: 'insert_stock.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    alert(response);
+                },
+                error: function () {
+                    alert('An error occurred while submitting the form.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

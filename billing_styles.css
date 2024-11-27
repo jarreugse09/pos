@@ -1,0 +1,136 @@
+:root{
+  --text: #050506;
+  --background: #ffffff;
+  --primary: #ff93ac;
+  --secondary: #f9d4d4;
+  --accent: #6262d1;
+  --button: #ff5f5f;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.section {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-right: 1px solid var(--secondary);
+}
+
+.section:last-child {
+    border-right: none;
+}
+
+.section.bill {
+    flex: 0.4; /* Shortened section three */
+    background-color: var(--secondary);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.categories button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    background-color: var(--button);
+    color: var(--background);
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.categories button:hover {
+    background-color: var(--accent);
+}
+
+.section.categories {
+    flex: 0.2; /* Reduced width of category section */
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: left;
+}
+
+.card {
+    width: 20%; /* Adjust width to fit 5 items in a row */
+    height: 270px; /* Adjusted height */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--secondary);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.card img {
+    max-width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card .price {
+    margin-bottom: 5px; /* Decreased bottom padding */
+}
+
+.card:hover {
+    background-color: var(--primary);
+}
+
+
+
+.bill table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bill table th, .bill table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.bill table th {
+    background-color: var(--primary);
+    color: var(--background);
+}
+
+#checkout-button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: var(--background);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkout-button:hover {
+    background-color: var(--accent);
+}

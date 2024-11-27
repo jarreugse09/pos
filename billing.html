@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Page</title>
+    <link rel="stylesheet" href="billing_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="section categories">
+            <h2>Categories</h2>
+            <a href="index.html">
+                <button id="add-category-item-button">Add Category/Item</button>
+            </a>
+            <button id="all-categories-button">All Categories</button>
+        </div>
+        <div class="section items">
+            <h2>Items</h2>
+        </div>
+        <div class="section bill">
+            <h2>Bill</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                                           
+                    </tr>
+                </thead>
+                <tbody id="bill-body"></tbody>
+            </table>
+            <div id="bill-summary">
+                <p>Total: <span id="grand-total">0.00</span> PHP</p>
+                <label for="customer-payment">Paid Amount:</label>
+                <input type="number" id="customer-payment" style="width: 100%; margin: 5px 0; padding: 5px;">
+                <p>Change: <span id="change">0.00</span> PHP</p>
+            </div>
+            <button id="checkout-button">
+                Checkout
+            </button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="billing_script.js"></script>
+</body>
+</html>
